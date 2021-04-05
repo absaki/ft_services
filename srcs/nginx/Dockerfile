@@ -13,3 +13,4 @@ RUN chmod 744 /tmp/init.sh
 CMD [ "/tmp/init.sh" ]
 EXPOSE 80
 EXPOSE 443
+EXPOSE 22
