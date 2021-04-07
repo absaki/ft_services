@@ -4,12 +4,18 @@
 cd `dirname $0`
 read -p "Enter memory size for minikube. (like 2048m or 8g) > " memsize
 let processors=`grep processor /proc/cpuinfo | wc -l`
-minikube start --driver=hdocker --cpus=$((processors-1)) --memory=$memsize
+minikube start --driver=docker --cpus=$((processors-1)) --memory=$memsize
 minikube dashboard &> /dev/null &
+
+# Create keys for SSL
+openssl req -newkey rsa:4096 -x509 -sha256 -days 1000 -nodes -out ./keys/server.pem\
+		-keyout ./keys/server.key\
+		-subj "/C=JP/ST=Tokyo/L=Minato/O=42Tokyo/OU=kikeda/CN=localhost"
+kubectl create secret generic ssl-keys --from-file=./keys/server.key --from-file=./keys/server.pem
 
 # Container image preparation
 eval `minikube -p minikube docker-env`
-docker build -t fts-nginx ./srcs/nginx/
+docker build -t nginx ./srcs/nginx/
 
 # k8s cluster setup
 ## MetalLB init

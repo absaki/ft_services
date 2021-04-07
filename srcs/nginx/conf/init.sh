@@ -1,10 +1,10 @@
 #!bin/ash
 
 #SSL
-mkdir /etc/nginx/ssl
-openssl req -newkey rsa:4096 -x509 -sha256 -days 1000 -nodes -out /etc/nginx/ssl/server.pem\
-		-keyout /etc/nginx/ssl/server.key\
-		-subj "/C=JP/ST=Tokyo/L=Minato/O=42Tokyo/OU=kikeda/CN=localhost"
+# mkdir /etc/nginx/ssl
+# openssl req -newkey rsa:4096 -x509 -sha256 -days 1000 -nodes -out /etc/nginx/ssl/server.pem\
+# 		-keyout /etc/nginx/ssl/server.key\
+# 		-subj "/C=JP/ST=Tokyo/L=Minato/O=42Tokyo/OU=kikeda/CN=localhost"
 
 # NGINX
 adduser -D -g 'www' www
