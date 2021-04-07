@@ -18,7 +18,7 @@ kind: Deployment
 metadata:
   name: wordpress
 spec:
-  replicas: 1
+  replicas: 10
   selector:
     matchLabels:
       app: wordpress
@@ -45,7 +45,7 @@ kind: Deployment
 metadata:
   name: nginx
 spec:
-  replicas: 2
+  replicas: 10
   selector:
     matchLabels:
       app: nginx
@@ -120,4 +120,4 @@ spec:
     - name: http
       protocol: TCP
       port: 5050
-      targetPort: 5050
+      targetPort: 80
