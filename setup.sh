@@ -16,6 +16,7 @@ kubectl create secret generic ssl-keys --from-file=./keys/server.key --from-file
 # Container image preparation
 eval `minikube -p minikube docker-env`
 docker build -t nginx ./srcs/nginx/
+docker build -t wordpress ./srcs/wordpress/
 
 # k8s cluster setup
 ## MetalLB init
