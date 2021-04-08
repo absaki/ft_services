@@ -1,20 +1,18 @@
 #!bin/ash
 
-# PHP-FPM
-rm /etc/php7/php-fpm.d/www.conf
-mv /tmp/www.conf /etc/php7/php-fpm.d/www.conf
-php-fpm7
-rc-service php-fpm7 start
-
-# NGINX
-adduser -D -g 'www' www
-mkdir -p /run/nginx
-mkdir -p /var/www/html
-chown -R www:www /var/www
-mv /etc/nginx/http.d/default.conf /etc/nginx/http.d/default.conf.original
-cp /tmp/nginx_top.conf /etc/nginx/http.d/
-cp /tmp/index.html /var/www/html/index.html
-cp /tmp/phpinfo.php /var/www/html/phpinfo.php
+mkdir /run/openrc
+mkdir /run/mysqld
+touch /run/openrc/softlevel
+/etc/init.d/mariadb setup
+/etc/init.d/mariadb start
+mysqld -u root & > /dev/null
 
 # START SERVER
+php-fpm7
+rc-service php-fpm7 start
+sleep 3
+echo "create database wpdb;" | mysql -u root --skip-password
+echo "create user 'wpadmin'@'localhost' identified by 'wpadmin';" | mysql -u root --skip-password
+echo "grant all on wpdb.* to 'wpadmin'@'localhost';" | mysql -u root --skip-password
+echo "FLUSH PRIVILEGES;" | mysql -u root --skip-password
 nginx -g 'daemon off;'

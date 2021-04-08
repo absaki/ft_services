@@ -12,8 +12,16 @@ RUN apk update\
 			php7-mysqlnd\
 			php7-fpm\
 			php7-mbstring\
-			mariadb-server-utils\
+			mysql\
+			mysql-client\
+			mariadb-openrc\
+			php7-mysqli\
+			php7-iconv\
+			php7-xml\
+			php7-json\
+			php7-session\
 			curl
 COPY conf/ /tmp/
-RUN chmod 744 /tmp/init.sh
+RUN chmod 744 /tmp/init.sh /tmp/install.sh
+RUN /tmp/install.sh
 CMD [ "/tmp/init.sh" ]
