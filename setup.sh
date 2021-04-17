@@ -2,10 +2,9 @@
 
 # Start minikube
 cd `dirname $0`
-read -p "Enter memory size for minikube. (like 2048m or 8g) > " memsize
 let processors=`grep processor /proc/cpuinfo | wc -l`
 echo 'minikube start'
-minikube start --driver=docker --cpus=$((processors-1)) --memory=$memsize > /dev/null &
+minikube start --driver=docker --cpus=$((processors-1)) > /dev/null &
 
 # Create keys for SSL
 echo 'create ssl keys'
@@ -21,6 +20,7 @@ echo 'building container images'
 docker build -t nginx ./srcs/nginx/ > /dev/null &
 docker build -t wordpress ./srcs/wordpress/ > /dev/null &
 docker build -t phpmyadmin ./srcs/phpmyadmin/ > /dev/null &
+docker build -t mysql ./srcs/mysql/ > /dev/null &
 wait
 
 # k8s cluster setup

@@ -14,9 +14,10 @@ cp /tmp/index.html /var/www/html/index.html
 cp /tmp/phpinfo.php /var/www/html/phpinfo.php
 
 # WordPress
-curl -Lk4o /tmp/wordpress.tar.gz https://ja.wordpress.org/latest-ja.tar.gz
-tar -xzvf /tmp/wordpress.tar.gz -C /tmp/
-mv /tmp/wordpress/* /var/www/html/
+curl -Lk4o /tmp/wordpress.zip https://github.com/WordPress/WordPress/archive/refs/heads/master.zip
+unzip /tmp/wordpress.zip -d /tmp/
+mv /tmp/WordPress-master/* /var/www/html/
+mv /tmp/wp-config.php /var/www/html/
 
 # PHPMyAdmin
 curl -o /tmp/phpmyadmin.zip https://files.phpmyadmin.net/phpMyAdmin/5.1.0/phpMyAdmin-5.1.0-all-languages.zip
