@@ -202,28 +202,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: wordpress
-  labels:
-    app: wordpress
-spec:
-  ports:
-  - port: 9000
-    targetPort: 9000
-    protocol: TCP
-  selector:
-    app: wordpress
-
----
-
-apiVersion: v1
-kind: Service
-metadata:
   name: mysql
   labels:
     app: mysql
 spec:
   ports:
-  - port: 3306
+  - name: mysql
+    port: 3306
     targetPort: 3306
     protocol: TCP
   selector:

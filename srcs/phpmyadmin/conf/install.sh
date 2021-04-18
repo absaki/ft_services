@@ -1,5 +1,9 @@
 #!bin/ash
 
+# PHP-FPM
+rm /etc/php7/php-fpm.d/www.conf
+mv /tmp/www.conf /etc/php7/php-fpm.d/www.conf
+
 # NGINX
 adduser -D -g 'nginx' nginx
 mkdir -p /run/nginx

@@ -1,8 +1,9 @@
 FROM	alpine:latest
 
 LABEL version="1.0"
-LABEL description="wordpress server"
+LABEL description="mysql server"
 EXPOSE 3306
+EXPOSE 9000
 RUN apk update\
 	&&	apk add --no-cache\
 			openrc\
