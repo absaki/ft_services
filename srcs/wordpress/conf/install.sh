@@ -19,9 +19,4 @@ unzip /tmp/wordpress.zip -d /tmp/
 mv /tmp/WordPress-master/* /var/www/html/
 mv /tmp/wp-config.php /var/www/html/
 
-# PHPMyAdmin
-curl -o /tmp/phpmyadmin.zip https://files.phpmyadmin.net/phpMyAdmin/5.1.0/phpMyAdmin-5.1.0-all-languages.zip
-unzip -d /tmp /tmp/phpmyadmin.zip
-mv /tmp/phpMyAdmin-5.1.0-all-languages /var/www/html/phpmyadmin/
-
 chown -R nginx:nginx /var/www
