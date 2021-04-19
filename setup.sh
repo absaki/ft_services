@@ -18,9 +18,6 @@ openssl req -newkey rsa:4096 -x509 -sha256 -days 1000 -nodes -out ./keys/server.
 wait
 kubectl create secret generic ssl-keys --from-file=./keys/server.key --from-file=./keys/server.pem
 
-# Create secrets for MySQL
-kubectl create secret generic mysql-user --from-literal=username=$DB_USR --from-literal=password=$DB_PWD
-
 # Container image preparation
 eval `minikube -p minikube docker-env`
 echo 'building container images'

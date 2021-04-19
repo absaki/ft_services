@@ -9,6 +9,6 @@ mysqld -u root &
 sleep 5;
 echo "create database wpdb;" | mysql
 echo "create user 'wpadmin' identified by 'wpadmin';" | mysql
-echo "grant all privileges on wpdb.* to 'wpadmin'@'%';" | mysql
+echo "grant all privileges on wpdb.* to wpadmin@'%';" | mysql
 echo "FLUSH PRIVILEGES;" | mysql
 tail -f /dev/null
