@@ -16,7 +16,3 @@ cp /tmp/phpinfo.php /var/www/html/phpinfo.php
 # WordPress
 curl -Lk4o /tmp/wordpress.zip https://github.com/WordPress/WordPress/archive/refs/heads/master.zip
 unzip /tmp/wordpress.zip -d /tmp/
-mv /tmp/WordPress-master/* /var/www/html/
-mv /tmp/wp-config.php /var/www/html/
-
-chown -R nginx:nginx /var/www

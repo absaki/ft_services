@@ -20,6 +20,9 @@ spec:
       - name: secret-volume
         secret:
           secretName: ssl-keys
+      - name: wp-content-pv
+        persistentVolumeClaim:
+          claimName: wp-content-pv-claim
       containers:
         - name: ftps
           image: ftps
@@ -32,6 +35,8 @@ spec:
           volumeMounts:
           - mountPath: /etc/ftps/ssl
             name: secret-volume
+          - mountPath: /etc/ftps/wpadmin
+            name: wp-content-pv    
 
 ---
 
