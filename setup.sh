@@ -25,6 +25,7 @@ docker build -t nginx ./srcs/nginx/ > /dev/null &
 docker build -t wordpress ./srcs/wordpress/ > /dev/null &
 docker build -t phpmyadmin ./srcs/phpmyadmin/ > /dev/null &
 docker build -t mysql ./srcs/mysql/ > /dev/null &
+docker build -t ftps ./srcs/ftps/ > /dev/null &
 wait
 
 # k8s cluster setup

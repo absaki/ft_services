@@ -1,0 +1,71 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ftps
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ftps
+  strategy:
+    rollingUpdate:
+      maxSurge: 50%
+      maxUnavailable: 40%
+  template:
+    metadata:
+      labels:
+        app: ftps
+    spec:
+      volumes:
+      - name: secret-volume
+        secret:
+          secretName: ssl-keys
+      containers:
+        - name: ftps
+          image: ftps
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 20
+            - containerPort: 21
+            - containerPort: 21009
+            - containerPort: 21010
+            - containerPort: 21011
+          volumeMounts:
+          - mountPath: /etc/ftps/ssl
+            name: secret-volume
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: ftps
+  annotations:
+    metallb.universe.tf/allow-shared-ip: default
+  labels:
+    app: ftps
+spec:
+  type: LoadBalancer
+  selector:
+    app: ftps
+  ports:
+    - name: ftp
+      protocol: TCP
+      port: 21
+      targetPort: 21
+    - name: ftp-data
+      protocol: TCP
+      port: 20
+      targetPort: 20
+    - name: ftp1
+      protocol: TCP
+      port: 21009
+      targetPort: 21009
+    - name: ftp2
+      protocol: TCP
+      port: 21010
+      targetPort: 21010
+    - name: ftp3
+      protocol: TCP
+      port: 21011
+      targetPort: 21011
