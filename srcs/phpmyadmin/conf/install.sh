@@ -18,6 +18,5 @@ curl -o /tmp/phpmyadmin.zip https://files.phpmyadmin.net/phpMyAdmin/5.1.0/phpMyA
 unzip -d /tmp /tmp/phpmyadmin.zip
 mkdir /var/www/html/phpmyadmin
 cp -pR /tmp/phpMyAdmin-5.1.0-all-languages/* /var/www/html/phpmyadmin
-sed -i s/localhost/mysql/ /var/www/html/phpmyadmin/libraries/config.default.php
-
+cp /tmp/config.inc.php /var/www/html/phpmyadmin/config.inc.php
 chown -R nginx:nginx /var/www
