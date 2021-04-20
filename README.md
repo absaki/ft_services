@@ -16,7 +16,6 @@ This project is a part of the 42 (42.fr) curriculum.
 ```
 - Make `docker` command executable without `sudo`.
 ```
-# dockerグループがなければ作る
 sudo groupadd docker
 sudo gpasswd -a $USER docker
 sudo service docker restart
