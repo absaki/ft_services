@@ -32,3 +32,5 @@ exit
 ```
 minikube delete
 ```
+
+### Have a nice day!
