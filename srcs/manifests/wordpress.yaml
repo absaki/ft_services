@@ -16,13 +16,19 @@ spec:
       labels:
         app: wordpress
     spec:
+      volumes:
+      - name: secret-volume
+        secret:
+          secretName: ssl-keys
       containers:
         - name: wordpress
           image: wordpress
           imagePullPolicy: Never
           ports:
-            - containerPort: 80
-            - containerPort: 9000
+            - containerPort: 5050
+          volumeMounts:
+          - mountPath: /etc/nginx/ssl
+            name: secret-volume
 
 ---
 
@@ -31,7 +37,7 @@ kind: Service
 metadata:
   name: wordpress
   annotations:
-    metallb.universe.tf/address-pool: default
+    metallb.universe.tf/allow-shared-ip: default
   labels:
     app: wordpress
 spec:
@@ -42,4 +48,4 @@ spec:
     - name: http
       protocol: TCP
       port: 5050
-      targetPort: 80
+      targetPort: 5050

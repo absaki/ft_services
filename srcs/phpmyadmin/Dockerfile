@@ -2,7 +2,7 @@ FROM	alpine:latest
 
 LABEL version="1.0"
 LABEL description="phpmyadmin server"
-EXPOSE 80
+EXPOSE 5000
 RUN apk update\
 	&&	apk add --no-cache\
 			openrc\

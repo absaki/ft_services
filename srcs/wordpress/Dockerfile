@@ -2,7 +2,7 @@ FROM	alpine:latest
 
 LABEL version="1.0"
 LABEL description="wordpress server"
-EXPOSE 80
+EXPOSE 5050
 RUN apk update\
 	&&	apk add --no-cache\
 			openrc\
