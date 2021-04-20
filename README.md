@@ -1,5 +1,5 @@
 # ft_services
-This project is a part of the 42 (42.fr) curriculum.
+This project is a part of [42](42.fr) curriculum.
 
 ## Preparation
 - Update minikube.
