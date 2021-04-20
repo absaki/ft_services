@@ -27,9 +27,8 @@ spec:
           ports:
             - containerPort: 20
             - containerPort: 21
-            - containerPort: 21009
-            - containerPort: 21010
-            - containerPort: 21011
+            - containerPort: 60042
+            - containerPort: 60043
           volumeMounts:
           - mountPath: /etc/ftps/ssl
             name: secret-volume
@@ -59,13 +58,9 @@ spec:
       targetPort: 20
     - name: ftp1
       protocol: TCP
-      port: 21009
-      targetPort: 21009
+      port: 60042
+      targetPort: 60042
     - name: ftp2
       protocol: TCP
-      port: 21010
-      targetPort: 21010
-    - name: ftp3
-      protocol: TCP
-      port: 21011
-      targetPort: 21011
+      port: 60043
+      targetPort: 60043
