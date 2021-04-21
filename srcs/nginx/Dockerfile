@@ -1,4 +1,4 @@
-FROM	alpine:latest
+FROM	alpine:3.13.5
 
 LABEL version="1.0"
 LABEL description="nginx server"
