@@ -24,7 +24,7 @@ spec:
             - containerPort: 3306
           volumeMounts:
             - name: influxdb-pv
-              mountPath: /var/lib/influxdb
+              mountPath: /root/.influxdb/
       volumes:
         - name: influxdb-pv
           persistentVolumeClaim:
