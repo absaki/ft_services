@@ -33,4 +33,25 @@ exit
 minikube delete
 ```
 
+## Default Setting
+- mysql
+```
+user:       wpadmin
+password:   wpadmin
+```
+- ftps
+```
+host:       192.168.49.42
+user:       wpadmin
+password:   wpadmin
+port:       21
+```
+## Local Link
+
+- [nginx-http](http://192.168.49.42)
+- [nginx-https](https://192.168.49.42)
+- [grafana](https://192.168.49.42:3000/d/KoCYtk9Gz/ft_services_cluster?orgId=1&refresh=5s)
+- [wordpress](https://192.168.49.42:5050)
+- [phpmyadmin](https://192.168.49.42:5000)
+
 ### Have a nice day!
