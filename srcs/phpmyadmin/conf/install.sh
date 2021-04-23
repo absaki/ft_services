@@ -20,3 +20,7 @@ mkdir /var/www/html/phpmyadmin
 cp -pR /tmp/phpMyAdmin-5.1.0-all-languages/* /var/www/html/phpmyadmin
 cp /tmp/config.inc.php /var/www/html/phpmyadmin/config.inc.php
 chown -R nginx:nginx /var/www
+
+# Telegraf
+mkdir /etc/telegraf
+mv /tmp/telegraf.conf /etc/telegraf/telegraf.conf

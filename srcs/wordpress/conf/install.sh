@@ -16,3 +16,7 @@ cp /tmp/phpinfo.php /var/www/html/phpinfo.php
 # WordPress
 curl -Lk4o /tmp/wordpress.zip https://github.com/WordPress/WordPress/archive/refs/heads/master.zip
 unzip /tmp/wordpress.zip -d /tmp/
+
+# Telegraf
+mkdir /etc/telegraf
+mv /tmp/telegraf.conf /etc/telegraf/telegraf.conf

@@ -8,7 +8,8 @@ RUN apk update\
 			openrc\
 			mysql\
 			mysql-client\
-			mariadb-openrc
+			mariadb-openrc\
+			telegraf
 COPY conf/ /tmp/
 RUN chmod 744 /tmp/init.sh /tmp/install.sh
 RUN ./tmp/install.sh

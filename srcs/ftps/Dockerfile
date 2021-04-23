@@ -6,7 +6,8 @@ LABEL description="ftps server"
 RUN apk update\
 	&&	apk add --no-cache\
 			openrc\
-            vsftpd
+            vsftpd\
+			telegraf
 COPY conf/ /tmp/
 RUN chmod 744 /tmp/init.sh /tmp/install.sh\
     && /tmp/install.sh

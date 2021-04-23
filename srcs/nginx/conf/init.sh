@@ -15,5 +15,8 @@ mv /etc/nginx/http.d/default.conf /etc/nginx/http.d/default.conf.original
 cp /tmp/nginx_top.conf /etc/nginx/http.d/
 cp /tmp/index.html /var/www/html/index.html
 
+# TELEGRAF
+telegraf &
+
 # START SERVER
 nginx -g 'daemon off;'

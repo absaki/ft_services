@@ -17,7 +17,8 @@ RUN apk update\
 			php7-json\
 			php7-session\
 			mysql-client\
-			curl
+			curl\
+			telegraf
 COPY conf/ /tmp/
 RUN chmod 744 /tmp/init.sh /tmp/install.sh
 RUN /tmp/install.sh

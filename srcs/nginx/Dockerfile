@@ -7,9 +7,11 @@ RUN apk update\
 	&&	apk add --no-cache\
 			openrc\
 			nginx\
-			openssl
+			openssl\
+			telegraf
 COPY conf/ /tmp/
-RUN chmod 744 /tmp/init.sh
+RUN chmod 744 /tmp/init.sh /tmp/install.sh
+RUN /tmp/install.sh
 CMD [ "/tmp/init.sh" ]
 EXPOSE 80
 EXPOSE 443
