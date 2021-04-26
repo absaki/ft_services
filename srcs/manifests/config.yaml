@@ -10,3 +10,14 @@ data:
       protocol: layer2
       addresses:
       - 192.168.49.42-192.168.49.42
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: default
+  name: nginx-port-config
+data:
+  wpport: "5050"
+  pmaport: "5000"

@@ -39,6 +39,7 @@ metadata:
   labels:
     app: influxdb
 spec:
+  type: ClusterIP
   ports:
   - name: influxdb
     port: 8086

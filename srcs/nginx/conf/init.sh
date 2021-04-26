@@ -16,6 +16,9 @@ rmdir /var/www/html
 mv /tmp/public /var/www/html
 chmod -R 755 /var/www/html
 chown -R www:www /var/www
+sed -i -e "s/WPPORT/$WPPORT/g" /etc/nginx/http.d/nginx_top.conf
+sed -i -e "s/PMAPORT/$PMAPORT/g" /etc/nginx/http.d/nginx_top.conf
+
 # TELEGRAF
 telegraf &
 

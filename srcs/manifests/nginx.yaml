@@ -31,6 +31,17 @@ spec:
           volumeMounts:
           - mountPath: /etc/nginx/ssl
             name: secret-volume
+          env:
+          - name: WPPORT
+            valueFrom:
+              configMapKeyRef:
+                name: nginx-port-config
+                key: wpport
+          - name: PMAPORT
+            valueFrom:
+              configMapKeyRef:
+                name: nginx-port-config
+                key: pmaport
 
 ---
 
