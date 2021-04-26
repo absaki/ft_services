@@ -2,6 +2,10 @@
 This project is a part of [42](42.fr) curriculum.
 
 ## Preparation
+- Install openssl
+```
+sudo apt install opennssl
+```
 - Update minikube.
 ```
  curl -LO https://github.com/kubernetes/minikube/releases/download/v1.19.0/minikube-linux-amd64
