@@ -31,8 +31,6 @@ docker build -t grafana ./srcs/grafana > /dev/null &
 wait
 
 # k8s cluster setup
-## Dashboard start
-minikube dashboard &> /dev/null &
 ## MetalLB init
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.6/manifests/namespace.yaml
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.6/manifests/metallb.yaml
@@ -40,3 +38,6 @@ kubectl create secret generic -n metallb-system memberlist --from-literal=secret
 
 ## Start cluster
 kubectl apply -f ./srcs/manifests/
+
+## Dashboard start
+minikube dashboard &> /dev/null &
