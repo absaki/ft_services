@@ -18,6 +18,7 @@ RUN apk update\
 			php7-xml\
 			php7-json\
 			php7-session\
+			php7-phar\
 			curl\
 			telegraf
 COPY conf/ /tmp/
