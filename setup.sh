@@ -6,9 +6,8 @@ DB_PWD='wppass'
 
 # Start minikube
 cd `dirname $0`
-let processors=`grep processor /proc/cpuinfo | wc -l`
 echo 'minikube start'
-minikube start --driver=docker --cpus=$((processors-1)) --memory=12g > /dev/null &
+minikube start --driver=docker --memory=4g > /dev/null &
 
 # Create keys for SSL
 echo 'create ssl keys'
