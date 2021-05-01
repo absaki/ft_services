@@ -10,8 +10,7 @@ cp /usr/share/grafana-7.5.4/conf/defaults.ini /conf/
 cp /tmp/grafana.ini /usr/share/grafana-7.5.4/conf/grafana.ini
 cp /tmp/datasource.yaml /usr/share/grafana-7.5.4/conf/provisioning/datasources/
 cp /tmp/dashboard.yaml /usr/share/grafana-7.5.4/conf/provisioning/dashboards/
-mkdir /usr/share/grafana-7.5.4/dashboards
-cp /tmp/dashboard.json /usr/share/grafana-7.5.4/dashboards/
+mv /tmp/dashboards /usr/share/grafana-7.5.4/
 
 # LivenessProbe
 chmod +x /tmp/liveness.sh
