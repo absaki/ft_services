@@ -9,3 +9,6 @@ cp /tmp/mariadb-server.cnf /etc/my.cnf.d/
 # Telegraf
 mkdir /etc/telegraf
 mv /tmp/telegraf.conf /etc/telegraf/telegraf.conf
+
+# LivenessProbe
+chmod +x /tmp/liveness.sh

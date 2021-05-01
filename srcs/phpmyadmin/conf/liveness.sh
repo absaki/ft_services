@@ -6,6 +6,6 @@ if [ `pgrep php-fpm | wc -l` -eq 0 ]; then
     exit 2
 fi
 if [ `pgrep telegraf | wc -l` -eq 0 ]; then
-    exit 3
+    exit 2
 fi
 exit 0

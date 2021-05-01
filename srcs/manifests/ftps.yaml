@@ -36,7 +36,14 @@ spec:
           - mountPath: /etc/ftps/ssl
             name: secret-volume
           - mountPath: /etc/ftps/wpadmin
-            name: wp-content-pv    
+            name: wp-content-pv
+          livenessProbe:
+            exec:
+              command:
+              - ./tmp/liveness.sh
+            failureThreshold: 2
+            initialDelaySeconds: 15
+            periodSeconds: 5
 
 ---
 

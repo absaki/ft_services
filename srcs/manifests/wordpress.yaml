@@ -33,7 +33,14 @@ spec:
           - mountPath: /etc/nginx/ssl
             name: secret-volume
           - mountPath: /var/www/html
-            name: wp-content-pv        
+            name: wp-content-pv
+          livenessProbe:
+            exec:
+              command:
+              - ./tmp/liveness.sh
+            failureThreshold: 2
+            initialDelaySeconds: 15
+            periodSeconds: 5  
 
 ---
 

@@ -29,6 +29,13 @@ spec:
           volumeMounts:
           - mountPath: /ssl
             name: secret-volume
+          livenessProbe:
+            exec:
+              command:
+              - ./tmp/liveness.sh
+            failureThreshold: 2
+            initialDelaySeconds: 15
+            periodSeconds: 5
 
 ---
 

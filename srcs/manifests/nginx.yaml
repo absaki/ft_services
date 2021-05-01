@@ -31,6 +31,13 @@ spec:
           volumeMounts:
           - mountPath: /etc/nginx/ssl
             name: secret-volume
+          livenessProbe:
+            exec:
+              command:
+              - ./tmp/liveness.sh
+            failureThreshold: 2
+            initialDelaySeconds: 15
+            periodSeconds: 5
           env:
           - name: WPPORT
             valueFrom:
